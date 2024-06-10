@@ -41,7 +41,7 @@ class Magazine:
     @property
     def articles(self):
         """
-        Property method to retrieve the articles of the magazine.
+        Retrieves the articles of the magazine.
         """
         from models.article import Article
         conn = get_db_connection()
@@ -61,7 +61,7 @@ class Magazine:
     @property
     def contributors(self):
         """
-        Property method to retrieve the contributors of the magazine.
+        Retrieves the contributors of the magazine.
         """
         from models.author import Author
         conn = get_db_connection()
@@ -94,7 +94,7 @@ class Magazine:
         contributer_titles = "; ".join([contributer.name for contributer in self.contributors]) if self.contributors else "None"
         major_contributors = ";".join([contributer.name for contributer in self.contributing_authors()]) if self.contributing_authors() else "None"
         article_titles = ";".join([article.title for article in self.articles]) if self.articles else "None"
-        return f'MAGAZINE:{self.name} ||ID: {self.id} || ARTIC:{article_titles}|| CONTR:{contributer_titles} || MAJOR CONTR:{major_contributors}'
+        return f'MAGAZINE:{self.name} |ID: {self.id} |ARTICLE:{article_titles}|| CONTRIBUTOR:{contributer_titles} || MAJOR CONTR:{major_contributors}'
 
 
 
